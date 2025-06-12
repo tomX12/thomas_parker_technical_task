@@ -1,0 +1,23 @@
+{
+  "name": "thomas_parker_technical_task",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "playwright",
+    "bdd",
+    "ui",
+    "automation",
+    "ui"
+  ],
+  "author": "Thomas Parker",
+  "license": "ISC",
+  "description": "Playwright BDD automation suite for Gov.UK holiday calculator",
+  "devDependencies": {
+    "@playwright/test": "^1.53.0",
+    "@types/node": "^24.0.1",
+    "playwright-bdd": "^8.3.0"
+  }
+}
