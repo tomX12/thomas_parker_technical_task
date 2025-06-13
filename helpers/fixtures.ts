@@ -5,6 +5,7 @@ import { HolidayEntitlementBasisPage } from "../POM/HolidayEntitlementBasisPage"
 import { DoYouWantToWorkOutHolidayPage} from "../POM/DoYouWantToWorkOutHolidayPage";
 import { NumDaysWorkedPerWeekPage } from "../POM/NumDaysWorkedPerWeekPage"
 import { InfoBasedOnAnswersPage } from "../POM/InfoBasedOnAnswersPage"
+import { WhenDoesLeaveYearStartPage } from "../POM/WhenDoesLeaveYearStartPage";
 
 type CustomFixtures = {
     baseMethods: BaseMethods;
@@ -13,6 +14,7 @@ type CustomFixtures = {
     doYouWantToWorkOutHolidayPage: DoYouWantToWorkOutHolidayPage;
     numDaysWorkedPerWeekPage: NumDaysWorkedPerWeekPage;
     infoBasedOnAnswersPage: InfoBasedOnAnswersPage;
+    whenDoesLeaveYearStartPage: WhenDoesLeaveYearStartPage;
 };
 
 export const test = base.extend<CustomFixtures>({
@@ -39,6 +41,10 @@ export const test = base.extend<CustomFixtures>({
     infoBasedOnAnswersPage: async({page}, use) =>{
         const infoBasedOnAnswersPage = new InfoBasedOnAnswersPage(page)
         await use(infoBasedOnAnswersPage)
+    },
+    whenDoesLeaveYearStartPage: async({page},use) => {
+        const whenDoesLeaveYearStartPage = new WhenDoesLeaveYearStartPage(page)
+        await use(whenDoesLeaveYearStartPage)
     }
 })
 

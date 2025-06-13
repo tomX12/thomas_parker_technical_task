@@ -31,6 +31,6 @@ When('they submit their details for calculation', async({ baseMethods, infoBased
     await baseMethods.assertPageHeadingContainsText(infoBasedOnAnswersPage.PageText.PageHeading);
 })
 
-Then('they are entitled to {string} days of holiday', async({infoBasedOnAnswersPage}, numOfDaysHoliday: string)=>{
+Then('they are entitled to {string} of holiday', async({infoBasedOnAnswersPage}, numOfDaysHoliday: string)=>{
     await infoBasedOnAnswersPage.assertSummaryText(numOfDaysHoliday);
 })

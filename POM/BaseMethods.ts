@@ -5,11 +5,17 @@ export class BaseMethods{
     readonly inputBox: Locator;
     readonly pageHeading: Locator;
     readonly continueBtn: Locator;
+    readonly dayInputBox: Locator;
+    readonly monthInputBox: Locator;
+    readonly yearInputBox: Locator;
 
     constructor(public readonly page: Page){
         this.inputBox = page.locator('//input[@id="response"]')
         this.pageHeading = page.locator('h1')
         this.continueBtn = page.getByRole('button', { name: 'continue' })
+        this.dayInputBox = page.locator('//input[@id="response-0"]')
+        this.monthInputBox = page.locator('//input[@id="response-1"]')
+        this.yearInputBox = page.locator('//input[@id="response-2"]')
     }
 
     async goToBaseUrl(){
@@ -45,5 +51,18 @@ export class BaseMethods{
 
     async assertTextContains(locator: Locator, expectedText: string){
         await expect(locator).toContainText(expectedText);
+    }
+
+    async inputDate(date: string){
+
+        //split date string by / to get individual strings
+        const [day, month, year] = date.split('/');
+
+        await this.dayInputBox.fill(day);
+        await expect(this.dayInputBox).toHaveValue(day);
+        await this.monthInputBox.fill(month);
+        await expect(this.monthInputBox).toHaveValue(month);
+        await this.yearInputBox.fill(year);
+        await expect(this.yearInputBox).toHaveValue(year);
     }
 }
