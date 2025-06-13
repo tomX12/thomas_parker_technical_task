@@ -1,9 +1,36 @@
-import { test } from '../helpers/fixtures';
-import { createBdd } from 'playwright-bdd';
-
-//have to pass custom fixture into function
-const { Given, When, Then } = createBdd(test);
+import {Given, When, Then} from '../helpers/fixtures'
 
 Given('the employee starts a new calculation', async({page, baseMethods}) => {
     await baseMethods.goToBaseUrl();
+    await baseMethods.clickBtn('Start now')
 });
+
+Given('the employee selects {string} for working irregular hours', async({page, baseMethods, regularOrIrregularHoursPage}, radioBtnOption: string)=>{
+    await baseMethods.assertPageHeadingText(regularOrIrregularHoursPage.pageText.PageHeading );
+    await baseMethods.selectRadioBtn(radioBtnOption);
+    await baseMethods.clickContinue();
+});
+
+Given('their holiday entitlement is based on {string}', async({page, baseMethods, holidayEntitlementBasisPage}, entitlementBasisBtnOption: string) =>{
+    await holidayEntitlementBasisPage.SelectEntitlementBasis(entitlementBasisBtnOption)
+    await baseMethods.clickContinue();
+})
+
+
+Given('is {string}', async({page, baseMethods, doYouWantToWorkOutHolidayPage}, holidayOption: string) =>{
+    await doYouWantToWorkOutHolidayPage.selectWhatHolidayIsFor(holidayOption);
+    await baseMethods.clickContinue();
+})
+
+Given('they work {string} day per week', async({page, baseMethods, numDaysWorkedPerWeekPage}, daysWorked: string)=>{
+    await numDaysWorkedPerWeekPage.InputDaysWorked(daysWorked);
+    await baseMethods.clickContinue();
+})
+
+When('they submit their details for calculation', async({page, baseMethods, infoBasedOnAnswersPage}) => {
+    await baseMethods.assertPageHeadingContainsText(infoBasedOnAnswersPage.PageText.PageHeading);
+})
+
+Then('they are entitled to {string} days of holiday', async({page, infoBasedOnAnswersPage}, numOfDaysHoliday: string)=>{
+    await infoBasedOnAnswersPage.assertSummaryText(numOfDaysHoliday);
+})

@@ -143,3 +143,7 @@ dist
 
 .idea
 # End of https://www.toptal.com/developers/gitignore/api/node
+
+.features-gen
+.playwright-report
+.test-results
