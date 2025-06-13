@@ -6,7 +6,7 @@ Given('the leave year starts on the {string}', async({baseMethods, whenDoesLeave
     await baseMethods.clickContinue();
 })
 
-When('the employment start date was the {string}', async({baseMethods, whenDoesLeaveYearStartPage}, employmentStartDate:string)=>{
+When('the employment start date was the {string}', async({baseMethods}, employmentStartDate:string)=>{
     await baseMethods.assertPageHeadingText("What was the employment start date?");
     await baseMethods.inputDate(employmentStartDate);
     await baseMethods.clickContinue();

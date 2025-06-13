@@ -2,12 +2,14 @@ import type {Locator, Page } from '@playwright/test';
 import { expect } from '@playwright/test';
 
 export class BaseMethods{
+
     readonly inputBox: Locator;
     readonly pageHeading: Locator;
     readonly continueBtn: Locator;
     readonly dayInputBox: Locator;
     readonly monthInputBox: Locator;
     readonly yearInputBox: Locator;
+    readonly errorMsg: Locator;
 
     constructor(public readonly page: Page){
         this.inputBox = page.locator('//input[@id="response"]')
@@ -16,10 +18,16 @@ export class BaseMethods{
         this.dayInputBox = page.locator('//input[@id="response-0"]')
         this.monthInputBox = page.locator('//input[@id="response-1"]')
         this.yearInputBox = page.locator('//input[@id="response-2"]')
+        this.errorMsg = page.locator("//div[@id='error-summary']//a")
     }
 
     async goToBaseUrl(){
         await this.page.goto('')
+    }
+
+    async goToPageViaUrl(baseUrl: string, path: string){
+        const url = `${baseUrl}${path}`;
+        await this.page.goto(url);
     }
 
     async clickBtn(btnTitle: string){
@@ -64,5 +72,9 @@ export class BaseMethods{
         await expect(this.monthInputBox).toHaveValue(month);
         await this.yearInputBox.fill(year);
         await expect(this.yearInputBox).toHaveValue(year);
+    }
+
+    async assertErrorMessageVisible(error: string) {
+        await expect(this.errorMsg).toHaveText(error);
     }
 }
