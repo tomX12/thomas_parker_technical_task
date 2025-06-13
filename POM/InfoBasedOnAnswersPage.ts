@@ -1,5 +1,4 @@
 import {BaseMethods} from "./BaseMethods";
-import {Locator} from "@playwright/test";
 
 export class InfoBasedOnAnswersPage extends BaseMethods{
     public PageText = {
