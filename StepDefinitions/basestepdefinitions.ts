@@ -1,4 +1,11 @@
 import {Given, When, Then} from '../helpers/fixtures'
+import { PATHS } from '../helpers/paths'
+
+Given('the user is on the {string} page', async({baseMethods, baseURL}, pageHeading: string)=>{
+    const path = PATHS[pageHeading]
+    await baseMethods.goToPageViaUrl(baseURL, path)
+    await baseMethods.assertPageHeadingText(pageHeading);
+})
 
 Given('the employee starts a new calculation', async({ baseMethods }) => {
     await baseMethods.goToBaseUrl();

@@ -10,6 +10,7 @@ export class BaseMethods{
     readonly monthInputBox: Locator;
     readonly yearInputBox: Locator;
     readonly errorMsg: Locator;
+    readonly startAgainLink: Locator;
 
     constructor(public readonly page: Page){
         this.inputBox = page.locator('//input[@id="response"]')
@@ -19,6 +20,7 @@ export class BaseMethods{
         this.monthInputBox = page.locator('//input[@id="response-1"]')
         this.yearInputBox = page.locator('//input[@id="response-2"]')
         this.errorMsg = page.locator("//div[@id='error-summary']//a")
+        this.startAgainLink = page.locator("//a[text()='Start again']")
     }
 
     async goToBaseUrl(){
@@ -37,6 +39,10 @@ export class BaseMethods{
 
     async clickContinue(){
         await this.continueBtn.click();
+    }
+
+    async startAgain(){
+        await this.startAgainLink.click();
     }
 
     async selectRadioBtn(radioBtnTitle: string){
