@@ -4,21 +4,26 @@
   "main": "index.js",
   "scripts": {
     "test": "npx bddgen && npx playwright test",
-    "test-ui": "npx bddgen && npx playwright test --ui"
+    "test-ui": "npx bddgen && npx playwright test --ui",
+    "report": "npx playwright show-report"
   },
   "keywords": [
     "playwright",
     "bdd",
-    "ui",
     "automation",
-    "ui"
+    "ui",
+    "front-end"
   ],
   "author": "Thomas Parker",
   "license": "ISC",
   "description": "Playwright BDD automation suite for Gov.UK holiday calculator",
   "devDependencies": {
+    "@eslint/js": "^9.29.0",
     "@playwright/test": "^1.53.0",
     "@types/node": "^24.0.1",
-    "playwright-bdd": "^8.3.0"
+    "eslint": "^9.29.0",
+    "globals": "^16.2.0",
+    "playwright-bdd": "^8.3.0",
+    "typescript-eslint": "^8.34.0"
   }
 }

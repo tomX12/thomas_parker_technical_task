@@ -1,4 +1,4 @@
-import {Given, Then} from '../helpers/fixtures'
+import {Given, Then} from '../helpers/Fixtures'
 
 Given('the user hits the {string} key', async({baseMethods}, key: string) => {
     await baseMethods.pressKey(key);

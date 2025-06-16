@@ -1,4 +1,4 @@
-import {Given, When, Then} from '../helpers/fixtures'
+import {When, Then} from '../helpers/Fixtures'
 
 When('the user clicks continue', async({baseMethods})=>{
     await baseMethods.clickContinue()

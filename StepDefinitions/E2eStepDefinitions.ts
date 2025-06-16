@@ -1,4 +1,4 @@
-import {Given, When } from '../helpers/fixtures'
+import {Given, When } from '../helpers/Fixtures'
 
 Given('the leave year starts on the {string}', async({baseMethods, whenDoesLeaveYearStartPage}, yearStartDate:string)=>{
     await baseMethods.assertPageHeadingText(whenDoesLeaveYearStartPage.PageText.PageHeading);
