@@ -95,7 +95,8 @@ export class BaseMethods{
     }
 
     async pressKey(key: string){
-        await this.page.keyboard.press(key)
+        const keyUpper = key.charAt(0).toUpperCase()
+        await this.page.keyboard.press(keyUpper)
     }
 
     async elementIsVisible(locator: Locator){

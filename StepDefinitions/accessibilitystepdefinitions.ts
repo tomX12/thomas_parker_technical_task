@@ -1,7 +1,7 @@
-import {Given, When, Then} from '../helpers/fixtures'
+import {Given, Then} from '../helpers/fixtures'
 
 Given('the user hits the {string} key', async({baseMethods}, key: string) => {
-    await baseMethods.pressKey("Tab");
+    await baseMethods.pressKey(key);
 })
 
 Then('the skip to content header should be visible', async({baseMethods}) => {
