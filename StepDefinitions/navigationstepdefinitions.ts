@@ -9,7 +9,6 @@ Then("the user is returned to the homepage", async({baseMethods}) =>{
 })
 
 Given("the user has answered a question", async({baseMethods, holidayEntitlementBasisPage})=>{
-    await baseMethods.goToBaseUrl();
     await baseMethods.clickBtn("Start now");
     await baseMethods.assertPageHeadingText("Does the employee work irregular hours or for part of the year?");
     await baseMethods.selectRadioBtn("No");

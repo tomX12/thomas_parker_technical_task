@@ -12,6 +12,7 @@ export class BaseMethods{
     readonly errorMsg: Locator;
     readonly link: string;
     readonly answer: Locator;
+    readonly skipToContentBanner: Locator;
 
     constructor(public readonly page: Page){
         this.inputBox = page.locator('//input[@id="response"]')
@@ -23,6 +24,7 @@ export class BaseMethods{
         this.errorMsg = page.locator("//div[@id='error-summary']//a")
         this.link = "//a[contains(text(), '{var}')]"
         this.answer = page.locator("//dd[@class='govuk-summary-list__value']")
+        this.skipToContentBanner = page.locator("//a[@data-module='govuk-skip-link']")
     }
 
     dynamicWebElement(locator: string, testToReplaceVar: string): Locator{
@@ -90,5 +92,13 @@ export class BaseMethods{
 
     async assertErrorMessageVisible(error: string) {
         await expect(this.errorMsg).toHaveText(error);
+    }
+
+    async pressKey(key: string){
+        await this.page.keyboard.press(key)
+    }
+
+    async elementIsVisible(locator: Locator){
+        await expect(locator).toBeVisible()
     }
 }

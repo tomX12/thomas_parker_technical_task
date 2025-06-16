@@ -8,7 +8,6 @@ Given('the user is on the {string} page', async({baseMethods, baseURL}, pageHead
 })
 
 Given('the employee starts a new calculation', async({ baseMethods }) => {
-    await baseMethods.goToBaseUrl();
     await baseMethods.clickBtn('Start now')
 });
 

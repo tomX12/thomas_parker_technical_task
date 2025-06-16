@@ -1,6 +1,5 @@
 Feature: Negative tests to check error handling
 
-
   Scenario: Error displays when the user tries to continue without selecting a radio btn
     Given the user is on the "Does the employee work irregular hours or for part of the year?" page
     When the user clicks continue
