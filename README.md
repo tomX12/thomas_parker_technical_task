@@ -40,6 +40,11 @@ npm run test-ui
 ```bash
 npm run report
 ```
+## Thoughts on further improvements 
+- More robust CI pipeline with better outputting of results
+- More informative reporter such as Allure, especially as BDD is being used
+
+
 ## Accessibility Task
 ### Defects found on test page
 | **Defect**                                          | **WCAG 2.2 Guideline**                                     | **Level** |
