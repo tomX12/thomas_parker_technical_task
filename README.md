@@ -15,20 +15,20 @@ This repository contains an automated BDD (Behavior Driven Development) test sui
 2. **Install Dependencies**
    
    ```bash
-   npm install
+      npm install
 
 ## ✅ Running Tests
 
 ### Run Tests in Headless Mode
 ```bash
-npm run test
+   npm run test
 ```
 ### Run Tests using Playwright UI
 ```bash
-npm run test-ui
+   npm run test-ui
 ```
 ### View Previous Run Report
 ```bash
-npm run report
+   npm run report
 ```
 
