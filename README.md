@@ -7,15 +7,17 @@ This repository contains an automated BDD (Behavior Driven Development) test sui
 
 - [Node.js v22 LTS](https://nodejs.org/en/download/) installed
 1. **Clone the repository:**
-
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/tomX12/thomas_parker_technical_task.git
    cd your-repo-name
 
 2. **Install Dependencies**
-   
    ```bash
    npm install
+
+4. **Install Playwright Browsers**
+   ```bash
+   npx playwright install
 
 ## ✅ Running Tests
 
