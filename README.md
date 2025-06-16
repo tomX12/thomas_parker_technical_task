@@ -11,7 +11,7 @@ This repository contains an automated BDD (Behavior Driven Development) test sui
    git clone https://github.com/tomX12/thomas_parker_technical_task.git
    cd your-repo-name
    ```
-   or if downloaing ZIP of repo:
+   or if downloading ZIP of repo:
    ```bash
    Extract into folder of choice
    cd folder-of-choice
