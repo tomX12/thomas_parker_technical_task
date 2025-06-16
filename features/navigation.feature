@@ -5,7 +5,7 @@ Feature: Navigation tests
     When the user clicks the "Start again" link
     Then the user is returned to the homepage
 
-#  Scenario: User can change an answer
-#    Given the user has answered a question
-#    When the user changes their answer for the answered question
-#    Then the answer should be updated
+  Scenario: User can change an answer
+    Given the user has answered a question
+    When the user changes their answer for the answered question
+    Then the answer should be updated

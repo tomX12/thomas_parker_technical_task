@@ -10,7 +10,8 @@ export class BaseMethods{
     readonly monthInputBox: Locator;
     readonly yearInputBox: Locator;
     readonly errorMsg: Locator;
-    readonly startAgainLink: Locator;
+    readonly link: string;
+    readonly answer: Locator;
 
     constructor(public readonly page: Page){
         this.inputBox = page.locator('//input[@id="response"]')
@@ -20,7 +21,13 @@ export class BaseMethods{
         this.monthInputBox = page.locator('//input[@id="response-1"]')
         this.yearInputBox = page.locator('//input[@id="response-2"]')
         this.errorMsg = page.locator("//div[@id='error-summary']//a")
-        this.startAgainLink = page.locator("//a[text()='Start again']")
+        this.link = "//a[contains(text(), '{var}')]"
+        this.answer = page.locator("//dd[@class='govuk-summary-list__value']")
+    }
+
+    dynamicWebElement(locator: string, testToReplaceVar: string): Locator{
+        const newLocator = locator.replace('{var}', testToReplaceVar);
+        return this.page.locator(newLocator);
     }
 
     async goToBaseUrl(){
@@ -41,8 +48,9 @@ export class BaseMethods{
         await this.continueBtn.click();
     }
 
-    async startAgain(){
-        await this.startAgainLink.click();
+    async clickLink(linkText: string){
+        const linkLocator: Locator = this.dynamicWebElement(this.link, linkText)
+        await linkLocator.click();
     }
 
     async selectRadioBtn(radioBtnTitle: string){
