@@ -22,7 +22,7 @@ export const test = base.extend<CustomFixtures>({
         const baseMethods = new BaseMethods(page);
         await use(baseMethods);
     },
-    regularOrIrregularHoursPage: async ({page},use) =>{
+    regularOrIrregularHoursPage: async ({},use) =>{
         const regularOrIrregularHours = new RegularOrIrregularHoursPage();
         await use(regularOrIrregularHours);
     },

@@ -1,4 +1,4 @@
-import {Then, When, Given } from '../helpers/fixtures'
+import {Then, When, Given } from '../helpers/Fixtures'
 
 When("the user clicks the {string} link", async({baseMethods}, linkText: string) => {
     await baseMethods.clickLink(linkText);
@@ -13,7 +13,7 @@ Given("the user has answered a question", async({baseMethods, holidayEntitlement
     await baseMethods.assertPageHeadingText("Does the employee work irregular hours or for part of the year?");
     await baseMethods.selectRadioBtn("No");
     await baseMethods.clickContinue();
-    await baseMethods.assertPageHeadingText(holidayEntitlementBasisPage.pageText.PageHeading)
+    await baseMethods.assertPageHeadingText(holidayEntitlementBasisPage.PageText.PageHeading)
 } )
 
 When("the user changes their answer for the answered question", async({baseMethods}) => {

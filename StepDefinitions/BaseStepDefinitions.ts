@@ -1,5 +1,5 @@
-import {Given, When, Then} from '../helpers/fixtures'
-import { PATHS } from '../helpers/paths'
+import {Given, When, Then} from '../helpers/Fixtures'
+import { PATHS } from '../helpers/Paths'
 
 Given('the user is on the {string} page', async({baseMethods, baseURL}, pageHeading: string)=>{
     const path = PATHS[pageHeading]
@@ -12,7 +12,7 @@ Given('the employee starts a new calculation', async({ baseMethods }) => {
 });
 
 Given('the employee selects {string} for working irregular hours', async({baseMethods, regularOrIrregularHoursPage}, radioBtnOption: string)=>{
-    await baseMethods.assertPageHeadingText(regularOrIrregularHoursPage.pageText.PageHeading );
+    await baseMethods.assertPageHeadingText(regularOrIrregularHoursPage.PageText.PageHeading );
     await baseMethods.selectRadioBtn(radioBtnOption);
     await baseMethods.clickContinue();
 });
